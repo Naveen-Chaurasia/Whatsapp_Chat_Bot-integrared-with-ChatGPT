@@ -2,7 +2,7 @@
 #https://www.pragnakalp.com/automate-messages-using-whatsapp-business-api-flask-part-1/
 #https://www.pragnakalp.com/build-an-automated-ai-powered-whatsapp-chatbot-with-chatgpt-using-flask/
 #https://www.pragnakalp.com/automate-messages-using-whatsapp-business-api-flask-part-1/
-
+from hugchat import hugchat
 
 from flask import Flask, request
 import requests
@@ -51,7 +51,15 @@ def webhook():
             #     {"role": "user", "content": chat_gpt_input}]
             # )
             # response = completion['choices'][0]['message']['content']
-            response ="Hi"
+
+            chatbot = hugchat.ChatBot()
+            print(chatbot.chat("Who are imaginedragons? "))
+            id = chatbot.new_conversation()
+            cl = chatbot.get_conversation_list()
+
+
+
+            response =cl[0]
             print("ChatGPT Response=>",response)
             receiver_number=res['entry'][0]['changes'][0]['value']['contacts'][0]['wa_id']
             send_msg(response,receiver_number)

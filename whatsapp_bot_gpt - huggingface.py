@@ -15,7 +15,7 @@ app = Flask(__name__)
 def send_msg(msg,receiver_number):
 
   headers = {
-       'Authorization': 'Bearer EAADOtBAbTFEBABy4kapvkbnWGJ9tLYCrghojZBR7dnyCPR58nZBZC3aHVuA7swDzpZAeVh5If9VcAFZCJlIel5sfF0B9z0vuq738GBfNsznZAO39OtcT6ZBKtlhSOY5phZAAaysZC93EZAtX9a1XZAIZCZB7Js2ZAdkroZCMDYzcDvlFgqvG4hNWsOzJwipDMnwbNfiZCm2OVXdleqiFZAwZDZD',
+       'Authorization': 'Bearer 1234EAADOtBAbTFEBAIwqDEYgbo0zxEyptuZB5s6kMhpKb3k29GnJxuGj811TMwHrFZAZCBpnO2ZCHoVujZBFpBJ9akaRNydDxf9Q0ggvJw2CrOryZCJ9R0WpHvfZByZAZBafIhUhbRc8R0FThJG1r0ZC0zTqfJZBzITBkX6ZCp9ug7C1fFUJdCnvYCynddggVkyiLOCe9l1DpMgh7CQOlQZDZD',
    }
 
   response = requests.post('https://graph.facebook.com/v16.0/103538419355832/messages',
@@ -53,7 +53,7 @@ def webhook():
             # response = completion['choices'][0]['message']['content']
 
             chatbot = hugchat.ChatBot()
-            print(chatbot.chat("Who are imaginedragons? "))
+            print(chatbot.chat(chat_gpt_input))
             id = chatbot.new_conversation()
             cl = chatbot.get_conversation_list()
 

@@ -15,7 +15,7 @@ app = Flask(__name__)
 def send_msg(msg,receiver_number):
 
   headers = {
-       'Authorization': 'Bearer EAADOtBAbTFEBAPRRzZBWtT8ZCfnnbNATFpKD4mg3et2fJlUmo6oFZAAI2uZCwMdqLRJOtqM8QhwWMTLDiWYlZBhczkIPzRUZAPV9aelyh8jObqgqXRrugFPJYz4BnZB1pFY3CwXYjliWqSr0Cgqgf2Heb4ZCwMX5WyLEdP5sLXTasv51lSaavWBiZB6BPPCwJhdxrM5A1nXQIbAZDZD',
+       'Authorization': 'Bearer EAADOtBAbTFEBABy4kapvkbnWGJ9tLYCrghojZBR7dnyCPR58nZBZC3aHVuA7swDzpZAeVh5If9VcAFZCJlIel5sfF0B9z0vuq738GBfNsznZAO39OtcT6ZBKtlhSOY5phZAAaysZC93EZAtX9a1XZAIZCZB7Js2ZAdkroZCMDYzcDvlFgqvG4hNWsOzJwipDMnwbNfiZCm2OVXdleqiFZAwZDZD',
    }
 
   response = requests.post('https://graph.facebook.com/v16.0/103538419355832/messages',
@@ -62,3 +62,19 @@ def webhook():
   
 if __name__ == "__main__":
    app.run(debug=True)
+
+
+
+# from flask import Flask, request
+# app = Flask(__name__)
+ 
+# @app.route('/receive_msg', methods=['POST','GET'])
+# def webhook():
+#    if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
+#        if not request.args.get("hub.verify_token")== "abcdefgh":
+#            return "Verification token missmatch", 403
+#        return request.args['hub.challenge'], 200
+#    return "Hello world", 200
+ 
+# if __name__ == "__main__":
+#    app.run(debug=True)
